@@ -1,4 +1,6 @@
 import {Router} from 'express';
+import { CreateProductController } from '../controllers/CreateProductController';
+import { ListProductsController } from '../controllers/ListProductsController';
 
 const routes = Router();
 
@@ -6,5 +8,8 @@ const routes = Router();
 routes.get('/healf-check', (request, response) => {
   response.json({ ok: 'server is OK' })
 })
+
+routes.post('/create-product', new CreateProductController().handle)
+routes.get('/products', new ListProductsController().handle);
 
 export default routes;
