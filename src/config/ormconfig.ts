@@ -1,5 +1,6 @@
 import {DataSource} from 'typeorm'
 import dotenv from "dotenv";
+
 dotenv.config();
 
 export const connectionDB = new DataSource({
@@ -11,9 +12,9 @@ export const connectionDB = new DataSource({
   database: process.env.DB_NAME,
   synchronize: true,
   logging: true,
-  entities: ["./src/entity/**/*.ts"],
+  entities: ["src/entity/**/*.ts"],
   subscribers: [],
-  migrations: [],
+  migrations: ["migrations/**/*.ts"],
 })
 
 connectionDB
